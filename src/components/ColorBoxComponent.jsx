@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { Button, TextField, Select, MenuItem, InputLabel, FormControl, Divider, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, LinearProgress, GridList, GridListTile, Card, CardContent, CardActionArea, CardMedia, Typography, CardActions } from '@material-ui/core';
-import { MDBCard, MDBCardBody, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBCardImage, MDBBox } from 'mdbreact';
+import { Select, MenuItem, InputLabel, GridList, Card } from '@material-ui/core';
+import { MDBCard, MDBCardBody, MDBRow, MDBCol, MDBBtn, MDBIcon } from 'mdbreact';
 import { makeStyles } from '@material-ui/core/styles';
 
 const ColorBoxComponent = () => {
@@ -72,6 +72,7 @@ const ColorBoxComponent = () => {
                                 <MenuItem value='rgb(128, 128, 128)'>Gray</MenuItem>
                                 <MenuItem value='rgb(76, 0, 153)'>Purple</MenuItem>
                                 <MenuItem value='rgb(552, 0, 127)'>Pink</MenuItem>
+
                             </Select>
                         </MDBCol>
                         <MDBCol lg="2">
@@ -94,7 +95,7 @@ const ColorBoxComponent = () => {
             <MDBCard className='mb-2'>
                 {/* {JSON.stringify(colorbox)} */}
                 <GridList cellHeight={350} className={classes.gridList} cols={5}>
-                    {colorbox.map((item, i) => {
+                    {colorbox.map((item) => {
                         if(saturate){
                             return(
                                 <Card style={{ height: 200, backgroundColor: item.color, WebkitFilter: `saturate(0.5)` }}></Card>
@@ -112,7 +113,7 @@ const ColorBoxComponent = () => {
 }
 
 export default ColorBoxComponent
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     gridList: {
         height: 736,
     },
